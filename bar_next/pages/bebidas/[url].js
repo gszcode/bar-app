@@ -1,10 +1,30 @@
-import React from 'react'
+import { useState } from 'react'
 import Image from 'next/legacy/image'
 import Layout from '@/components/Layout'
 import styles2 from '../../styles/Producto.module.css'
 
-const Producto = ({ bebida }) => {
-  const { descripcion, imagen, nombre, precio } = bebida[0]
+const Producto = ({ bebida, agregarCarrito }) => {
+  const [cantidad, setCantidad] = useState(1)
+  const { descripcion, imagen, nombre, precio, id } = bebida[0]
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    if (cantidad < 1) {
+      alert('Cantidad no válida')
+      return
+    }
+
+    const bebidaSeleccionada = {
+      id,
+      imagen: imagen.url,
+      nombre,
+      precio,
+      cantidad
+    }
+
+    agregarCarrito(bebidaSeleccionada)
+  }
 
   return (
     <Layout pagina={`Bebida ${nombre}`}>
@@ -22,10 +42,13 @@ const Producto = ({ bebida }) => {
           <p className={styles2.descripcion}>{descripcion}</p>
           <p className={styles2.precio}>${precio}</p>
 
-          <form className={styles2.formulario}>
+          <form className={styles2.formulario} onSubmit={handleSubmit}>
             <label>Cantidad:</label>
-            <select>
-              <option value="">-- Seleccione --</option>
+            <select
+              value={cantidad}
+              onChange={(e) => setCantidad(parseInt(e.target.value))}
+            >
+              <option value="0">-- Seleccione --</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
