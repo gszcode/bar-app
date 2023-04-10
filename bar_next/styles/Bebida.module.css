@@ -1,0 +1,44 @@
+.bebida {
+  display: grid;
+  grid-template-rows: 2fr 3fr;
+  gap: 1rem;
+  align-items: center;
+}
+.contenido {
+  padding: 0.5rem;
+}
+.contenido h3 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+.descripcion {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+.precio {
+  color: var(--primary);
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+.enlace {
+  margin-top: 2rem;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--negro);
+  border: 2px solid var(--primary);
+  padding: 1rem 5rem;
+  transition-property: background-color;
+  transition: 0.3s;
+}
+.enlace:hover {
+  background-color: var(--primary);
+  color: var(--blanco);
+}
