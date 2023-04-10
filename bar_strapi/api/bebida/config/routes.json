@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/bebidas",
+      "handler": "bebida.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/bebidas/count",
+      "handler": "bebida.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/bebidas/:id",
+      "handler": "bebida.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/bebidas",
+      "handler": "bebida.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/bebidas/:id",
+      "handler": "bebida.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/bebidas/:id",
+      "handler": "bebida.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
