@@ -40,12 +40,13 @@
   font-size: 1.4rem;
   font-weight: 700;
   text-transform: uppercase;
-  padding: 0.5rem;
+  padding: 5px 10px;
   transition-property: background-color;
   transition-duration: 0.3s;
+  line-height: 40px;
 }
 .navegacion a:hover {
-  background-color: var(--primary);
+  color: var(--primary);
 }
 .modelo {
   color: var(--blanco);
