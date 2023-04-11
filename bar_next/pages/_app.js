@@ -31,11 +31,31 @@ export default function App({ Component, pageProps }) {
     }
   }
 
+  const actualizarCantidad = (producto) => {
+    const carritoActualizado = carrito.map((bebida) => {
+      if (bebida.id === producto.id) {
+        bebida.cantidad = producto.cantidad
+      }
+
+      return bebida
+    })
+
+    setCarrito(carritoActualizado)
+  }
+
+  const eliminarProducto = (id) => {
+    const carritoActualizado = carrito.filter((producto) => producto.id !== id)
+
+    setCarrito(carritoActualizado)
+  }
+
   return (
     <Component
       {...pageProps}
       carrito={carrito}
       agregarCarrito={agregarCarrito}
+      actualizarCantidad={actualizarCantidad}
+      eliminarProducto={eliminarProducto}
     />
   )
 }
