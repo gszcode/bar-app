@@ -16,9 +16,9 @@ export default function App({ Component, pageProps }) {
   }, [carrito])
 
   const agregarCarrito = (producto) => {
-    if (carrito.some((bebida) => bebida.id === producto.id)) {
+    if (carrito.some((bebida) => bebida._id === producto._id)) {
       const carritoActualizado = carrito.map((bebida) => {
-        if (bebida.id === producto.id) {
+        if (bebida._id === producto._id) {
           bebida.cantidad = producto.cantidad
         }
 
@@ -33,7 +33,7 @@ export default function App({ Component, pageProps }) {
 
   const actualizarCantidad = (producto) => {
     const carritoActualizado = carrito.map((bebida) => {
-      if (bebida.id === producto.id) {
+      if (bebida._id === producto._id) {
         bebida.cantidad = producto.cantidad
       }
 
@@ -44,7 +44,7 @@ export default function App({ Component, pageProps }) {
   }
 
   const eliminarProducto = (id) => {
-    const carritoActualizado = carrito.filter((producto) => producto.id !== id)
+    const carritoActualizado = carrito.filter((producto) => producto._id !== id)
 
     setCarrito(carritoActualizado)
   }
